@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHBRAIN - Lawful Device Management & Recovery</title>
+  
+  <!-- Leaflet CSS for Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="logo">
+      <i class="fa-solid fa-shield-halved logo-icon"></i>
+      <span>ARCHBRAIN</span>
+    </div>
+    <nav class="nav">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="../backend/public/index.html" class="login-link">Login</a>
+      <a href="#pricing" class="cta-nav">Get Started Free</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="badge"><i class="fa-solid fa-earth-africa"></i> NG BUILT IN NIGERIA · FOR AFRICA</div>
+      <h1>Protect Every Device.<br><span class="cyan-gradient-text">Everywhere in Africa.</span></h1>
+      <p>Nigeria's first IMEI-based smart device tracking and Mobile Device Management platform. Recover stolen phones even after factory reset. Built for African infrastructure.</p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn-primary">🚀 Start Free Trial</a>
+        <a href="#demo" class="btn-secondary"><i class="fa-solid fa-play"></i> Watch Demo</a>
+      </div>
+      <div class="tracking-live-badge">
+        <span class="live-dot-pulse"></span>
+        <span>843 devices being tracked right now across Nigeria</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="glowing-circle"></div>
+      <div class="phone-mockup">
+        <div class="screen">
+          <div class="status-bar"><span>12:30</span> <i class="fa-solid fa-wifi"></i></div>
+          <div class="screen-content">
+            <i class="fa-solid fa-circle-check check-shield"></i>
+            <h3>ARCHBRAIN Secured</h3>
+            <p>Agent tracking is active in background</p>
+            <div class="pulse-indicator"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics Row Section -->
+  <section class="metrics-row-section">
+    <div class="metrics-container">
+      <div class="metric-item">
+        <h2>1.5M+</h2>
+        <p>Phones stolen in Nigeria yearly</p>
+      </div>
+      <div class="metric-item">
+        <h2>95%</h2>
+        <p>Recovery rate with ARCHBRAIN</p>
+      </div>
+      <div class="metric-item">
+        <h2>50M+</h2>
+        <p>Target smartphone users</p>
+      </div>
+      <div class="metric-item">
+        <h2>24/7</h2>
+        <p>Real-time live monitoring</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Network Coverage Section -->
+  <section id="network-coverage" class="network-coverage">
+    <div class="network-header">
+      <span class="badge-title">COVERAGE INFRASTRUCTURE</span>
+      <h2 class="section-title">Region: Nigeria</h2>
+      <p class="section-subtitle">One smart network for device security + recovery — close to Nigerian users, close to local data.</p>
+    </div>
+
+    <div class="globe-container">
+      <!-- Left Statistics Box -->
+      <div class="stats-box left-stats">
+        <div class="stats-box-inner">
+          <h3>30ms latency</h3>
+          <p>Real-time sync within 30ms via local edge servers in Lagos and Abuja, not overseas.</p>
+        </div>
+      </div>
+
+      <!-- Globe Canvas -->
+      <div class="globe-canvas-wrapper">
+        <canvas id="network-globe-canvas"></canvas>
+        <!-- Circular Map Overlays for Cities -->
+        <div id="map-overlay-Lagos" class="city-map-overlay"></div>
+        <div id="map-overlay-Abuja" class="city-map-overlay"></div>
+        <div id="map-overlay-PortHarcourt" class="city-map-overlay"></div>
+        <div id="map-overlay-Kano" class="city-map-overlay"></div>
+        <div id="map-overlay-Enugu" class="city-map-overlay"></div>
+      </div>
+
+      <!-- Right Statistics Box -->
+      <div class="stats-box right-stats">
+        <div class="stats-box-inner">
+          <p>99% of Nigeria's cellular towers and active networks are mapped and monitored within 30ms latency.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Features Row -->
+    <div class="network-features-row">
+      <div class="net-feature-col">
+        <div class="net-feature-icon"><i class="fa-solid fa-earth-africa"></i></div>
+        <h4>Run everywhere</h4>
+        <p>Real-time tracking and recovery operations run across all 36 Nigerian states + FCT, reaching 99% of the population.</p>
+      </div>
+      <div class="net-feature-col">
+        <div class="net-feature-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+        <h4>Run anywhere</h4>
+        <p>Our network integrates directly with Nigerian telecommunication gateways. It optimizes all tracking packets for low latency even on 2G/3G connections.</p>
+      </div>
+      <div class="net-feature-col">
+        <div class="net-feature-icon"><i class="fa-solid fa-server"></i></div>
+        <h4>Run at massive scale</h4>
+        <p>Track and manage thousands of consumer and enterprise devices simultaneously. Built for massive local scale. No capacity limits. Ever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <span class="badge-title">CORE FEATURES</span>
+    <h2 class="section-title">Everything You Need to Secure Your Devices</h2>
+    <p class="section-subtitle">Built for individuals and businesses. ARCHBRAIN gives you complete control over every registered device.</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+        <h3>IMEI Tracking</h3>
+        <p>Track via unique IMEI number. Works even after factory reset — the first and only African platform to offer this.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-map-marked-alt"></i></div>
+        <h3>Real-Time GPS</h3>
+        <p>Live device location updated every 30 seconds on an interactive map. Works across Nigeria on 2G/3G/4G.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+        <h3>Remote Lock</h3>
+        <p>Instantly lock your device remotely. Requires your PIN to unlock — keeping thieves completely locked out.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-trash-can"></i></div>
+        <h3>Remote Wipe</h3>
+        <p>Protect sensitive data by wiping your device remotely. Your personal data stays yours — even if the phone is gone.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-building"></i></div>
+        <h3>MDM for Business</h3>
+        <p>Manage all company devices from one dashboard. Enforce policies, track assets, reduce device-related losses.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-bell"></i></div>
+        <h3>Smart Alerts</h3>
+        <p>Instant SMS and push alerts when device leaves a zone, SIM card changes, or suspicious activity detected.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-chart-simple"></i></div>
+        <h3>Device Analytics</h3>
+        <p>Location history, device health, battery status and activity logs — all from your ARCHBRAIN dashboard.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>NDPR Compliant</h3>
+        <p>Fully compliant with Nigeria's Data Protection Regulation. Encrypted, secure, never sold to third parties.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-it-works">
+    <span class="badge-title">HOW IT WORKS</span>
+    <h2 class="section-title">Up and Running in Minutes</h2>
+    <p class="section-subtitle">Get started quickly and secure your device fleet with these simple steps.</p>
+    
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Download App</h3>
+        <p>Download ARCHBRAIN from Google Play. Create your free account in seconds.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Register Device</h3>
+        <p>Add your device IMEI and agree to our terms. Your consent is recorded and encrypted.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Track & Manage</h3>
+        <p>Monitor your device in real-time from the dashboard or mobile app anywhere in Nigeria.</p>
+      </div>
+      <div class="step-card step-full-width">
+        <div class="step-number">4</div>
+        <h3>Recover & Secure</h3>
+        <p>If stolen, track location, lock remotely, or wipe data instantly with one tap.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive MDM Simulator Section -->
+  <section id="demo" class="demo-section">
+    <div class="container">
+      <h2 class="section-title">Interactive MDM Console</h2>
+      <p class="section-subtitle">Simulate our actual control portal interface. Select a device below to request updates, lock, or wipe.</p>
+      
+      <div class="simulator-wrapper">
+        <!-- Dashboard Sidebar / Device List -->
+        <div class="sim-sidebar">
+          <div class="sim-sidebar-header">
+            <h4><i class="fa-solid fa-network-wired"></i> Device Registry</h4>
+            <span class="badge-online">3 Connected</span>
+          </div>
+          <div class="device-list">
+            <div class="device-item active" data-device="s24">
+              <div class="device-info">
+                <h5>Amina's Galaxy S24</h5>
+                <p><i class="fa-solid fa-location-dot"></i> Victoria Island, Lagos</p>
+              </div>
+              <span class="device-battery"><i class="fa-solid fa-battery-three-quarters"></i> 82%</span>
+            </div>
+            <div class="device-item" data-device="pixel8">
+              <div class="device-info">
+                <h5>Chukwu's Pixel 8 Pro</h5>
+                <p><i class="fa-solid fa-location-dot"></i> Ikeja, Lagos</p>
+              </div>
+              <span class="device-battery"><i class="fa-solid fa-battery-full"></i> 95%</span>
+            </div>
+            <div class="device-item" data-device="iphone15">
+              <div class="device-info">
+                <h5>Tunde's iPhone 15</h5>
+                <p><i class="fa-solid fa-location-dot"></i> Lekki Phase 1, Lagos</p>
+              </div>
+              <span class="device-battery"><i class="fa-solid fa-battery-half"></i> 55%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Map Canvas -->
+        <div class="sim-map-container">
+          <div id="leaflet-map"></div>
+          
+          <!-- Floating Status Console -->
+          <div class="console-log" id="console-log">
+            <div class="console-header">Console Operations</div>
+            <div class="console-lines" id="console-lines">
+              <div>[SYSTEM]: Initializing secure MDM link...</div>
+              <div>[SYSTEM]: E-Link secured. Monitoring 3 devices.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard Right Control Panel -->
+        <div class="sim-controls">
+          <div class="sim-control-header">
+            <h4>Remote Diagnostics</h4>
+          </div>
+          
+          <div class="control-group">
+            <label>Device Actions</label>
+            <div class="control-actions">
+              <button class="btn-control" id="action-locate"><i class="fa-solid fa-crosshairs"></i> Locate Device</button>
+              <button class="btn-control" id="action-alert"><i class="fa-solid fa-bell"></i> Send Alert</button>
+              <button class="btn-control" id="action-lock"><i class="fa-solid fa-lock"></i> Lock Device</button>
+              <button class="btn-control btn-danger" id="action-wipe"><i class="fa-solid fa-triangle-exclamation"></i> Wipe Device</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>MDM Policies (Business Tier)</label>
+            <div class="policy-toggles">
+              <div class="toggle-item">
+                <span>Block Unauthorized Apps</span>
+                <input type="checkbox" id="policy-apps" class="policy-checkbox">
+              </div>
+              <div class="toggle-item">
+                <span>Enforce 6-Digit Lock PIN</span>
+                <input type="checkbox" id="policy-pin" class="policy-checkbox" checked>
+              </div>
+              <div class="toggle-item">
+                <span>Prevent Location Disabling</span>
+                <input type="checkbox" id="policy-gps" class="policy-checkbox" checked>
+              </div>
+            </div>
+            <button class="btn-save-policy" id="save-policy-btn">Push Policies</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <h2 class="section-title">Fair and Clear Pricing</h2>
+    <p class="section-subtitle">Choose the right coverage for your needs with transparent costs and no hidden fees.</p>
+
+    <div class="pricing-switch-row">
+      <span class="pricing-toggle active" id="toggle-personal">Personal</span>
+      <span class="pricing-toggle" id="toggle-business">Business</span>
+    </div>
+
+    <!-- Personal Pricing Grid -->
+    <div class="pricing-grid pricing-personal" id="pricing-personal-grid">
+      <div class="pricing-card">
+        <span class="tier-label">STARTER</span>
+        <h3>Personal Free</h3>
+        <p class="card-desc">Try ARCHBRAIN with no commitment. Perfect for testing the basics.</p>
+        <div class="price">₦0 <span>forever</span></div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check"></i> Up to 2 devices</li>
+          <li><i class="fa-solid fa-check"></i> Basic GPS tracking</li>
+          <li><i class="fa-solid fa-check"></i> 7-day location history</li>
+          <li class="unavailable"><i class="fa-solid fa-xmark"></i> Remote lock</li>
+          <li class="unavailable"><i class="fa-solid fa-xmark"></i> Remote wipe</li>
+          <li class="unavailable"><i class="fa-solid fa-xmark"></i> Advanced alerts</li>
+        </ul>
+        <a href="#demo" id="btn-buy-free" class="btn-card">Start Free</a>
+      </div>
+
+      <div class="pricing-card premium featured">
+        <span class="tier-label">PREMIUM</span>
+        <div class="popular-tag">RECOMMENDED</div>
+        <h3>Personal Premium</h3>
+        <p class="card-desc">Full protection for you and your family. Everything you need to recover a stolen phone fast.</p>
+        <div class="price">₦2,500 <span>/ month</span></div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check"></i> Up to 10 devices</li>
+          <li><i class="fa-solid fa-check"></i> Real-time GPS tracking</li>
+          <li><i class="fa-solid fa-check"></i> Remote lock & wipe</li>
+          <li><i class="fa-solid fa-check"></i> 90-day location history</li>
+          <li><i class="fa-solid fa-check"></i> SMS + push alerts</li>
+          <li><i class="fa-solid fa-check"></i> Priority support</li>
+        </ul>
+        <a href="#demo" id="btn-buy-premium" class="btn-card btn-card-primary">Start Premium</a>
+      </div>
+
+      <div class="pricing-card">
+        <span class="tier-label">BEST VALUE</span>
+        <h3>Family Annual</h3>
+        <p class="card-desc">Pay once a year and save ₦5,000. Best value for families.</p>
+        <div class="price">₦25K <span>/ year</span></div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check"></i> Everything in Premium</li>
+          <li><i class="fa-solid fa-check"></i> Up to 10 devices</li>
+          <li><i class="fa-solid fa-check"></i> 2 months free</li>
+          <li><i class="fa-solid fa-check"></i> Priority recovery support</li>
+          <li><i class="fa-solid fa-check"></i> Early access to new features</li>
+        </ul>
+        <a href="mailto:sales@archbrain.com" class="btn-card">Get Annual Plan</a>
+      </div>
+    </div>
+
+    <!-- Business Pricing Grid -->
+    <div class="pricing-grid pricing-business hidden" id="pricing-business-grid">
+      <div class="pricing-card business-card">
+        <span class="tier-label">SME</span>
+        <h3>Business Starter</h3>
+        <p class="card-desc">For small businesses managing up to 20 employee devices.</p>
+        <div class="price">₦8K <span>/ month</span></div>
+        <div class="price-note">≈ ₦267 per day for up to 20 devices</div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check"></i> Up to 20 devices</li>
+          <li><i class="fa-solid fa-check"></i> Basic MDM dashboard</li>
+          <li><i class="fa-solid fa-check"></i> Remote lock & wipe</li>
+          <li><i class="fa-solid fa-check"></i> Real-time GPS tracking</li>
+          <li><i class="fa-solid fa-check"></i> Employee consent management</li>
+          <li><i class="fa-solid fa-check"></i> Email support</li>
+        </ul>
+        <a href="#demo" id="btn-buy-business" class="btn-card">Start Business Plan</a>
+      </div>
+
+      <div class="pricing-card premium business-card featured">
+        <span class="tier-label">ENTERPRISE</span>
+        <div class="popular-tag">RECOMMENDED</div>
+        <h3>Business MDM</h3>
+        <p class="card-desc">Full Mobile Device Management for growing Nigerian businesses.</p>
+        <div class="price">₦15K <span>/ month</span></div>
+        <div class="price-note">≈ ₦500 per day for unlimited devices</div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check"></i> Unlimited devices</li>
+          <li><i class="fa-solid fa-check"></i> Full MDM dashboard</li>
+          <li><i class="fa-solid fa-check"></i> Policy enforcement</li>
+          <li><i class="fa-solid fa-check"></i> API access</li>
+          <li><i class="fa-solid fa-check"></i> Dedicated account manager</li>
+          <li><i class="fa-solid fa-check"></i> Custom integrations</li>
+          <li><i class="fa-solid fa-check"></i> SLA guarantee</li>
+        </ul>
+        <a href="mailto:sales@archbrain.com" class="btn-card btn-card-primary">Contact Sales</a>
+      </div>
+
+      <div class="pricing-card business-card">
+        <span class="tier-label">CUSTOM</span>
+        <h3>Enterprise Custom</h3>
+        <p class="card-desc">For large organizations, banks, schools, and government agencies.</p>
+        <div class="price">Custom</div>
+        <div class="price-note">pricing on request</div>
+        <ul class="pricing-features">
+          <li><i class="fa-solid fa-check"></i> Everything in Business MDM</li>
+          <li><i class="fa-solid fa-check"></i> On-premise deployment option</li>
+          <li><i class="fa-solid fa-check"></i> Custom branding (white-label)</li>
+          <li><i class="fa-solid fa-check"></i> Law enforcement integration</li>
+          <li><i class="fa-solid fa-check"></i> Dedicated server</li>
+          <li><i class="fa-solid fa-check"></i> NDA & custom contract</li>
+        </ul>
+        <a href="mailto:sales@archbrain.com" class="btn-card">Request a Quote</a>
+      </div>
+    </div>
+
+    <div class="pricing-note" id="pricing-note">
+      <h3>Is ₦2,500 worth it?</h3>
+      <p>Your smartphone costs between ₦150,000 and ₦600,000. ARCHBRAIN Premium costs ₦2,500 per month — that is less than 2% of your phone's value per year to protect it completely. If your phone is stolen and recovered, ARCHBRAIN pays for itself 100x over.</p>
+      <div class="pricing-stats">
+        <div><strong>₦83</strong><span>Cost per day</span></div>
+        <div><strong>10x</strong><span>Devices protected</span></div>
+        <div><strong>30s</strong><span>GPS update speed</span></div>
+        <div><strong>95%</strong><span>Recovery rate</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section id="faqs" class="faqs">
+    <span class="badge-title">FAQ</span>
+    <h2 class="section-title">Common Questions</h2>
+    <p class="section-subtitle">Everything users ask before subscribing — answered honestly.</p>
+    <div class="faq-container">
+      <div class="faq-item">
+        <div class="faq-question">Why am I paying ₦2,500 per month? What exactly am I getting? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-answer">Running high-frequency real-time GPS tracking servers requires active cloud database infrastructure. ₦2,500/month gives you instant location updates every 30 seconds, remote lock & wipe capability, 90-day movement history, SMS alert gateways, and priority recovery support in Nigeria.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can ARCHBRAIN really track my phone after a factory reset? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-answer">Yes! Using our Knox & Android Enterprise MDM profile integration, ARCHBRAIN binds directly to system-level permissions. When enrolled, factory resets can be completely blocked or the tracking agent automatically reinstalls upon reboot.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Is ARCHBRAIN spying on me? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-answer">Absolutely not. ARCHBRAIN is a lawful anti-theft and device security platform. An active status icon is visible on your phone screen when running, and your data is encrypted. We do not access calls, messages, camera feeds, or personal files.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What happens if I cancel my subscription? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-answer">You can cancel anytime with a single tap. Your account gracefully reverts to the Free Starter plan (up to 2 devices, 5-minute tracking interval). No lock-in period or hidden cancellation fees.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What if ARCHBRAIN cannot recover my phone? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-answer">While our system boasts a 95% recovery rate across major Nigerian urban centers, if physical recovery is delayed, you can trigger our Remote Wipe feature to permanently destroy all personal data, photos, and banking credentials so thieves get nothing.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Does ARCHBRAIN drain my phone battery? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-answer">No. Our mobile application uses intelligent background location services (geofencing and motion sensors) that consume less than 2% of total battery life over a 24-hour period.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How do I pay? Can I pay with my Nigerian bank? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-answer">Yes! We accept all major Nigerian debit cards (Mastercard, Visa, Verve), direct bank transfers, and USSD payments through our secure Paystack integration.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Can I track someone else's phone? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-answer">No. ARCHBRAIN requires explicit device owner consent during initial app enrollment. Secretly tracking another adult's device without permission is strictly illegal under Nigerian law and NDPR privacy guidelines.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What is the difference between the free and Premium tracking speed? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-answer">The Free Starter plan updates locations once every 5 minutes. The Premium plan updates locations every 30 seconds. In 5 minutes, a moving vehicle can travel several kilometers; 30-second tracking provides real-time, street-level accuracy.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Is my data stored in Nigeria? <i class="fa-solid fa-chevron-down"></i></div>
+        <div class="faq-answer">Yes. ARCHBRAIN servers and data backups strictly comply with NDPR (Nigeria Data Protection Regulation) guidelines and NITDA standards, protected by end-to-end encryption.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="contact-section">
+    <span class="badge-title">CONTACT US</span>
+    <h2 class="section-title">Get in Touch with Our Team</h2>
+    <p class="section-subtitle">Have questions about device recovery, MDM enterprise licenses, or technical support? We are here 24/7.</p>
+    
+    <div class="contact-container">
+      <!-- Contact Info Cards Column -->
+      <div class="contact-info-column">
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-details">
+            <h4>Headquarters</h4>
+            <p>Plot 14, Commercial Avenue, Victoria Island<br>Lagos State, Nigeria</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="contact-details">
+            <h4>Email Support</h4>
+            <p>Support: support@archbrain.com<br>Enterprise Sales: sales@archbrain.com</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <div class="contact-details">
+            <h4>24/7 Phone & WhatsApp</h4>
+            <p>+234 (0) 800-ARCHBRAIN (+234 800 272 4272)<br>+234 812 345 6789 (WhatsApp Line)</p>
+          </div>
+        </div>
+
+        <div class="emergency-contact-box">
+          <div class="emergency-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+          <div class="emergency-text">
+            <h4>Stolen Device Emergency?</h4>
+            <p>If your phone was just stolen, log in directly to your ARCHBRAIN web console or call our emergency hotline immediately to lock or track your device in real time.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form Column -->
+      <div class="contact-form-wrapper">
+        <h3>Send Us a Message</h3>
+        <p>Fill out the form below and our support team will respond within 15 minutes.</p>
+
+        <form class="contact-form" id="main-contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out! Your message has been transmitted to our 24/7 team. We will contact you shortly.'); this.reset();">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="contact-name">Full Name</label>
+              <input type="text" id="contact-name" placeholder="e.g. Chukwuma Adebayo" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" placeholder="e.g. name@domain.com" required>
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="contact-phone">Phone Number</label>
+              <input type="tel" id="contact-phone" placeholder="e.g. +234 801 234 5678" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Inquiry Type</label>
+              <select id="contact-subject" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="stolen">Stolen Device Emergency</option>
+                <option value="personal">Personal Plan Assistance</option>
+                <option value="business">Business MDM Enterprise Inquiry</option>
+                <option value="support">Technical Support</option>
+                <option value="partnership">Law Enforcement / Partnership</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Your Message</label>
+            <textarea id="contact-message" rows="4" placeholder="How can our team help you today?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-contact-submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ready to Secure Your Devices Section -->
+  <section class="cta-section">
+    <div class="cta-section-content">
+      <h2 class="cta-title">Ready to Secure<br>Your Devices?</h2>
+      <p class="cta-subtitle">Join thousands of Nigerians protecting their devices with ARCHBRAIN</p>
+      
+      <form class="cta-form" onsubmit="event.preventDefault(); alert('Thank you for requesting early access! We will notify you at ' + this.querySelector('input').value);">
+        <input type="email" class="cta-input" placeholder="Enter your email address" required>
+        <button type="submit" class="cta-btn">Get Early Access</button>
+      </form>
+
+      <div class="cta-badges">
+        <div class="cta-badge-item">
+          <i class="fa-solid fa-square-check"></i>
+          <span>Free to start</span>
+        </div>
+        <span class="dot-separator">•</span>
+        <div class="cta-badge-item">
+          <i class="fa-solid fa-square-check"></i>
+          <span>No credit card needed</span>
+        </div>
+        <span class="dot-separator">•</span>
+        <div class="cta-badge-item">
+          <i class="fa-solid fa-square-check"></i>
+          <span>NDPR Compliant</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Policy Overlay (Modal) -->
+  <div class="modal-overlay" id="privacy-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>ARCHBRAIN Privacy Policy (NDPR Compliant)</h3>
+        <button class="close-modal" id="close-privacy-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Last Updated: June 2026</strong></p>
+        
+        <h4>1. Introduction</h4>
+        <p>ARCHBRAIN ("we", "our", "us") is committed to protecting your personal data in accordance with the Nigeria Data Protection Regulation (NDPR) and applicable laws.</p>
+        
+        <h4>2. Information We Collect</h4>
+        <p>We collect the following data when you register:</p>
+        <ul>
+          <li>Full name and email address</li>
+          <li>Phone number</li>
+          <li>Device IMEI number</li>
+          <li>Real-time GPS location</li>
+          <li>Device model and OS version</li>
+          <li>IP address</li>
+        </ul>
+        
+        <h4>3. How We Use Your Data</h4>
+        <p>Your data is used ONLY for:</p>
+        <ul>
+          <li>Device tracking and recovery services</li>
+          <li>Security alerts and notifications</li>
+          <li>Remote lock/wipe on your request</li>
+          <li>Improving our services</li>
+        </ul>
+        
+        <h4>4. Legal Basis for Processing</h4>
+        <p>We process your data based on:</p>
+        <ul>
+          <li>Your explicit consent (opt-in)</li>
+          <li>Contractual necessity</li>
+          <li>Legitimate business interest</li>
+        </ul>
+        
+        <h4>5. Data Sharing</h4>
+        <p>We DO NOT sell your data. We only share with:</p>
+        <ul>
+          <li>Law enforcement (when legally required)</li>
+          <li>Cloud service providers (AWS) under strict NDA</li>
+          <li>No third-party advertisers</li>
+        </ul>
+        
+        <h4>6. Data Retention</h4>
+        <ul>
+          <li>Active users: Data retained while account is active</li>
+          <li>Deleted accounts: Data purged within 30 days</li>
+          <li>Location history: Retained for 90 days only</li>
+        </ul>
+        
+        <h4>7. Your Rights Under NDPR</h4>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Access your personal data</li>
+          <li>Correct inaccurate data</li>
+          <li>Delete your data ("right to be forgotten")</li>
+          <li>Withdraw consent at any time</li>
+          <li>Data portability</li>
+          <li>Lodge complaints with NITDA</li>
+        </ul>
+        
+        <h4>8. Data Security</h4>
+        <p>We implement:</p>
+        <ul>
+          <li>AES-256 encryption for stored data</li>
+          <li>TLS 1.3 for data in transit</li>
+          <li>Regular security audits</li>
+          <li>Role-based access control</li>
+        </ul>
+        
+        <h4>9. Cookies</h4>
+        <p>Our app uses minimal cookies for:</p>
+        <ul>
+          <li>Authentication sessions</li>
+          <li>User preferences</li>
+        </ul>
+        <p>You can disable cookies in app settings.</p>
+        
+        <h4>10. Children's Privacy</h4>
+        <p>ARCHBRAIN is not intended for users under 18. We do not knowingly collect data from minors.</p>
+        
+        <h4>11. Changes to This Policy</h4>
+        <p>We will notify you 30 days before any changes via email and in-app notification.</p>
+        
+        <h4>12. Contact Us</h4>
+        <p>Data Protection Officer:<br>
+        Email: privacy@archbrain.com<br>
+        Address: Lagos, Nigeria<br>
+        Phone: +234-XXX-XXX-XXXX</p>
+        
+        <h4>13. Complaints</h4>
+        <p>If unsatisfied, contact NITDA:<br>
+        Website: nitda.gov.ng<br>
+        Email: info@nitda.gov.ng</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms & Conditions Overlay (Modal) -->
+  <div class="modal-overlay" id="terms-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>ARCHBRAIN Terms & Conditions</h3>
+        <button class="close-modal" id="close-terms-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Last Updated: June 2026</strong></p>
+        
+        <h4>1. Acceptance of Terms</h4>
+        <p>By downloading, registering, or using ARCHBRAIN, you agree to these Terms & Conditions. If you disagree, do not use our services.</p>
+        
+        <h4>2. Eligibility</h4>
+        <p>To use ARCHBRAIN you must:</p>
+        <ul>
+          <li>Be at least 18 years old</li>
+          <li>Have legal ownership of registered devices</li>
+          <li>Provide accurate registration information</li>
+          <li>Have a valid Nigerian phone number</li>
+        </ul>
+        
+        <h4>3. User Account</h4>
+        <p><strong>3.1 You are responsible for:</strong></p>
+        <ul>
+          <li>Keeping your password secure</li>
+          <li>All activity under your account</li>
+          <li>Accuracy of registered device info</li>
+        </ul>
+        <p><strong>3.2 We reserve the right to:</strong></p>
+        <ul>
+          <li>Suspend accounts violating these terms</li>
+          <li>Delete inactive accounts after 12 months</li>
+        </ul>
+        
+        <h4>4. Consent to Track</h4>
+        <p>By registering a device, you explicitly consent to:</p>
+        <ul>
+          <li>Collection of device IMEI number</li>
+          <li>Real-time location tracking</li>
+          <li>Remote management commands</li>
+        </ul>
+        <p>You may withdraw consent at any time by removing the device from your account.</p>
+        
+        <h4>5. Permitted Use</h4>
+        <p>ARCHBRAIN may ONLY be used to:</p>
+        <ul>
+          <li>Track YOUR OWN registered devices</li>
+          <li>Recover lost or stolen personal devices</li>
+          <li>Manage devices within your organization (with employee consent)</li>
+        </ul>
+        
+        <h4>6. Prohibited Use</h4>
+        <p>You MUST NOT use ARCHBRAIN to:</p>
+        <ul>
+          <li>Track devices you don't own</li>
+          <li>Stalk or surveil individuals</li>
+          <li>Track minors without guardian consent</li>
+          <li>Violate any Nigerian or international law</li>
+          <li>Share account access with unauthorized persons</li>
+        </ul>
+        <p>Violation results in immediate account termination and possible legal action.</p>
+        
+        <h4>7. Remote Commands</h4>
+        <p><strong>7.1 Lock Device:</strong></p>
+        <ul>
+          <li>Immediately locks registered device</li>
+          <li>Requires PIN to unlock</li>
+        </ul>
+        <p><strong>7.2 Wipe Device:</strong></p>
+        <ul>
+          <li>Permanently erases all device data</li>
+          <li>THIS ACTION CANNOT BE UNDONE</li>
+          <li>User bears full responsibility</li>
+        </ul>
+        <p><strong>7.3 Liability:</strong></p>
+        <p>ARCHBRAIN is not liable for data loss resulting from user-initiated commands.</p>
+        
+        <h4>8. Subscription & Payment</h4>
+        <p><strong>8.1 Free Plan:</strong> Up to 2 devices, basic tracking features.</p>
+        <p><strong>8.2 Premium Plan (₦2,500/month):</strong> Unlimited devices, advanced MDM features, priority support.</p>
+        <p><strong>8.3 Refunds:</strong> Payments are non-refundable unless service was unavailable for 72+ hours.</p>
+        
+        <h4>9. Limitation of Liability</h4>
+        <p>ARCHBRAIN is not liable for:</p>
+        <ul>
+          <li>Failure to locate a stolen device</li>
+          <li>Network or GPS inaccuracies</li>
+          <li>Data loss from remote wipe commands</li>
+          <li>Service interruptions beyond our control</li>
+        </ul>
+        
+        <h4>10. Intellectual Property</h4>
+        <p>All ARCHBRAIN software, logos, and content are owned by ARCHBRAIN and protected under Nigerian copyright law.</p>
+        
+        <h4>11. Governing Law</h4>
+        <p>These terms are governed by the laws of the Federal Republic of Nigeria. Disputes shall be resolved in Lagos State courts.</p>
+        
+        <h4>12. Changes to Terms</h4>
+        <p>We may update these terms with 30 days notice via email. Continued use means acceptance.</p>
+        
+        <h4>13. Contact</h4>
+        <p>Legal Team:<br>
+        Email: legal@archbrain.com<br>
+        Address: Lagos, Nigeria</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Paystack Simulation Modal -->
+  <div class="modal-overlay" id="paystack-modal">
+    <div class="paystack-iframe-mock">
+      <div class="paystack-close" id="close-paystack-btn">&times;</div>
+      <div class="paystack-header">
+        <div class="paystack-logo">
+          <span class="pay-dot"></span> paystack
+        </div>
+        <div class="paystack-merchant">
+          <h4>ARCHBRAIN Technologies</h4>
+          <p id="paystack-plan-name">Business MDM Plan</p>
+        </div>
+      </div>
+      <div class="paystack-body">
+        <div class="paystack-amount" id="paystack-amount-text">₦15,000</div>
+        <div class="paystack-email" id="paystack-email-text">admin@kongadeliveries.com</div>
+        
+        <form id="paystack-form">
+          <div class="pay-input-group">
+            <label>CARD NUMBER</label>
+            <input type="text" value="5061    2345    6789    1234" readonly>
+          </div>
+          <div class="pay-row">
+            <div class="pay-input-group">
+              <label>CARD EXPIRY</label>
+              <input type="text" value="12 / 28" readonly>
+            </div>
+            <div class="pay-input-group">
+              <label>CVV</label>
+              <input type="password" value="123" readonly>
+            </div>
+          </div>
+          <button type="button" class="btn-paystack-pay" id="btn-paystack-submit">
+            Pay <span id="paystack-btn-amount">₦15,000</span>
+          </button>
+        </form>
+      </div>
+      <div class="paystack-footer">
+        <i class="fa-solid fa-lock"></i> Secured by <span>paystack</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 ARCHBRAIN Technologies Ltd. Registered Limited Liability Company in Nigeria. Regulated under NITDA guidelines.</p>
+    <div class="footer-links">
+      <a href="#" id="view-privacy-btn">Privacy Policy</a> | 
+      <a href="#" id="view-terms-btn">Terms & Conditions</a> | 
+      <a href="#contact">Contact Support</a> | 
+      <a href="https://nitda.gov.ng" target="_blank">NITDA Official</a> | 
+      <a href="https://pre.cac.gov.ng" target="_blank">CAC Verification</a>
+    </div>
+  </footer>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Custom JS -->
+  <script src="app.js"></script>
+</body>
+</html>

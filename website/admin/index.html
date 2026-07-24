@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ARCHBRAIN Admin</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      body{padding:24px;background:#0f1724;color:#e6eef8;font-family:Inter,Arial}
+      input,button,textarea{font-size:14px}
+      .panel{background:#0b1220;padding:16px;border-radius:8px;margin-bottom:12px}
+      pre{white-space:pre-wrap;background:#08101a;padding:12px;border-radius:6px}
+    </style>
+  </head>
+  <body>
+    <h2>ARCHBRAIN Admin Dashboard (Minimal)</h2>
+
+    <div class="panel">
+      <label>Admin JWT Token (paste):</label><br />
+      <input id="token" style="width:80%" placeholder="Bearer token..." />
+      <button id="refresh">Refresh Lists</button>
+    </div>
+
+    <div class="panel">
+      <h3>Seed Admin (use ADMIN_SEED_KEY)</h3>
+      <input id="seed_name" placeholder="Name" />
+      <input id="seed_email" placeholder="Email" />
+      <input id="seed_phone" placeholder="Phone" />
+      <input id="seed_password" placeholder="Password" />
+      <input id="seed_key" placeholder="Seed key" />
+      <button id="seed_btn">Create Admin</button>
+      <div id="seed_result"></div>
+    </div>
+
+    <div class="panel">
+      <h3>Users</h3>
+      <pre id="users"></pre>
+    </div>
+
+    <div class="panel">
+      <h3>Devices</h3>
+      <pre id="devices"></pre>
+    </div>
+
+    <div class="panel">
+      <h3>MDM Commands</h3>
+      <pre id="commands"></pre>
+    </div>
+
+    <div class="panel">
+      <h3>Consent Records</h3>
+      <pre id="consents"></pre>
+    </div>
+
+    <script src="/admin/admin.js"></script>
+  </body>
+</html>

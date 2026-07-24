@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs - ARCHBRAIN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .faq-item {
+      background: var(--bg-card);
+      border: var(--border-normal);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-item:hover {
+      border-color: var(--accent-cyan);
+    }
+    .faq-header {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition);
+    }
+    .faq-header:hover {
+      background: var(--bg-card-hover);
+    }
+    .faq-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      flex: 1;
+    }
+    .faq-icon {
+      color: var(--accent-cyan);
+      font-size: 16px;
+      transition: var(--transition);
+    }
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      border-top: var(--border-normal);
+    }
+    .faq-item.active .faq-content {
+      max-height: 500px;
+    }
+    .faq-text {
+      padding: 20px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .faq-category {
+      background: var(--bg-secondary);
+      padding: 24px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+    .faq-category h3 {
+      color: var(--accent-cyan);
+      font-size: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .search-box {
+      background: var(--bg-card);
+      border: var(--border-normal);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .search-box input {
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      flex: 1;
+      font-size: 14px;
+      outline: none;
+    }
+    .search-box input::placeholder {
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">
+      <i class="fa-solid fa-shield-halved logo-icon"></i>
+      <span>ARCHBRAIN</span>
+    </a>
+    <nav class="nav">
+      <a href="features.html">Features</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faqs.html" style="color: var(--accent-cyan);">FAQs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="../backend/public/index.html" class="login-link">Login</a>
+      <a href="pricing.html" class="cta-nav">Get Started Free</a>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px; padding-bottom: 80px;">
+    <!-- FAQs Hero -->
+    <section class="hero" style="padding: 60px 8%; margin-top: 0;">
+      <h1 style="font-size: 48px; margin-bottom: 20px;">
+        Frequently Asked Questions
+      </h1>
+      <p style="font-size: 18px; color: var(--text-secondary); max-width: 700px;">
+        Find answers to common questions about ARCHBRAIN device protection and tracking.
+      </p>
+    </section>
+
+    <!-- Search -->
+    <section style="padding: 0 8%; margin-bottom: 40px;">
+      <div class="search-box">
+        <i class="fa-solid fa-search" style="color: var(--text-muted);"></i>
+        <input type="text" id="faqSearch" placeholder="Search FAQs..." />
+      </div>
+    </section>
+
+    <!-- General Questions -->
+    <section style="padding: 0 8%;">
+      <div class="faq-category">
+        <h3><i class="fa-solid fa-circle-info"></i> General Questions</h3>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">What is ARCHBRAIN?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              ARCHBRAIN is Nigeria's first IMEI-based mobile device protection and tracking service. It uses your device's unique hardware identifier (IMEI) to track, protect, and recover stolen phones even after factory reset. Built by Nigerians for Africans, ARCHBRAIN works with African infrastructure and connectivity.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">How is ARCHBRAIN different from Find My Phone?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Unlike built-in tracking that gets disabled when thieves factory reset your phone, ARCHBRAIN uses IMEI-based identification which is burned into your phone's hardware and cannot be changed. Our service works across all phone brands and includes remote lock/wipe, official proof of ownership, and recovery assistance.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Is ARCHBRAIN legal?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Absolutely. ARCHBRAIN operates under Nigeria's Cybersecurity Act and complies with international data protection standards. We work closely with law enforcement and telecom regulators. IMEI tracking is a standard industry practice used by governments, carriers, and major tech companies worldwide.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Is my data safe with ARCHBRAIN?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Yes. All data is encrypted end-to-end using AES-256 military-grade encryption. Your IMEI is one-way hashed and cannot be reversed. We comply with GDPR, CCPA, and Nigeria's NDPR. We never sell your data to third parties. All servers are hosted in Africa for data residency compliance.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Registration & Setup -->
+      <div class="faq-category">
+        <h3><i class="fa-solid fa-user-plus"></i> Registration & Setup</h3>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">How do I find my IMEI number?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              The easiest way: Dial *#06# on your phone and a 15-digit number will appear. Alternatively, check Settings → About Phone → Status → IMEI. For iPhones: Settings → General → About → IMEI. You can also check your phone's box or under the battery.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Can I register multiple devices?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Yes! Free plan: 1 device. Pro plan: 5 devices. Premium plan: Unlimited devices. You can manage all devices from one account and switch between them instantly. Perfect for families or business users.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Do I need GPS turned on?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              For accurate real-time tracking, GPS should be enabled. However, ARCHBRAIN can still track your device using cell tower triangulation and WiFi even without GPS. Accuracy will be reduced but you'll still get location within 100-200 meters.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Will ARCHBRAIN drain my battery?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              No. We've optimized the app to use minimal battery. It runs in the background with smart power management. On average, ARCHBRAIN uses less than 2% battery per day. You can also disable tracking during certain hours.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">What happens if I change my SIM card?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              No problem! ARCHBRAIN doesn't depend on your SIM card. It tracks your device by its IMEI hardware ID. Changing your SIM card won't affect tracking. Premium members get alerts when a new SIM is detected.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tracking & Features -->
+      <div class="faq-category">
+        <h3><i class="fa-solid fa-location-dot"></i> Tracking & Features</h3>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">How accurate is the tracking?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              GPS accuracy is typically 5-12 meters in open areas. In urban areas with tall buildings, it may be 20-50 meters. Indoors without strong GPS signal, accuracy can be 100+ meters using WiFi and cell towers. More satellites = better accuracy.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">How often is my location updated?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Real-time tracking: Every 30 seconds. Standard tracking: Every 5 minutes. You can customize update frequency in settings. More frequent updates use more battery. Pro tip: Increase frequency when looking for a stolen device.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Can I track my device if it's offline?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Not real-time. However, once your device goes online again, you'll immediately receive its last known location and all tracking data. Commands you issue (lock, wipe, etc.) are queued and execute once the device reconnects.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">What does "Remote Lock" do?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Remote Lock secures your device with a unique PIN that only you know. Thieves can't access your data. The lock persists even after they try to restart the device. You can unlock it remotely or set it to unlock only with biometric authentication.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">What's the difference between Lock and Wipe?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Lock: Secures your device with a PIN. You can unlock it later and recover the device. Wipe: Permanently deletes all data. Use Wipe only if you're certain you can't recover the device. Wipe cannot be reversed.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Device Protection -->
+      <div class="faq-category">
+        <h3><i class="fa-solid fa-shield-halved"></i> Device Protection</h3>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">My device was stolen. What should I do?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              1. Open ARCHBRAIN immediately and note your device's location. 2. Lock your device remotely. 3. Call your bank to freeze cards. 4. Report to police with your IMEI proof. 5. Contact your carrier to block the SIM. 6. Premium members get recovery assistance from our team.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Will ARCHBRAIN work after factory reset?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Yes! That's the main advantage of IMEI tracking. Factory reset wipes your apps but not your IMEI hardware identifier. ARCHBRAIN will continue to work and track your device. Once online, the app reinstalls automatically.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Does ARCHBRAIN work internationally?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Yes! Track your device anywhere in the world. Roaming charges may apply when traveling. Premium members get international support. Note: Some countries may have restrictions on tracking. Always comply with local laws.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Can I use ARCHBRAIN with a second-hand phone?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Yes! You can register a second-hand phone to your account. The previous owner's registration will need to be cleared from ARCHBRAIN's servers first (contact support). This prevents theft disputes and ensures only one person can control each device.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support & Billing -->
+      <div class="faq-category">
+        <h3><i class="fa-solid fa-headset"></i> Support & Billing</h3>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">How can I contact support?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Free users: Community forum. Pro users: Email support (24-hour response). Premium users: 24/7 phone, email, and chat support. Emergency? Call +234 (0) 810 234 5678 for immediate assistance.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Can I cancel my subscription anytime?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Yes! Cancel anytime with no penalties. Cancellation takes effect at the end of your billing cycle. Annual subscriptions include a 30-day money-back guarantee. Your device remains registered (in free tier) after cancellation.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">What if my payment fails?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              We'll send a reminder and retry 3 times over 10 days. If payment continues to fail, your subscription downgrades to Free tier. You won't lose your device registration. Update your payment method anytime in settings.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header">
+            <div class="faq-title">Do you offer refunds?</div>
+            <i class="fa-solid fa-chevron-down faq-icon"></i>
+          </div>
+          <div class="faq-content">
+            <div class="faq-text">
+              Annual subscriptions: 30-day money-back guarantee. Monthly subscriptions: No refunds after 7 days of use. If you upgrade, we prorate the difference. Contact support if you have issues.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Still have questions? -->
+    <section style="padding: 60px 8%; background: var(--bg-card); border: var(--border-glow); border-radius: 12px; text-align: center; margin-top: 60px;">
+      <h2 style="font-size: 28px; margin-bottom: 12px;">Still have questions?</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 24px;">Our support team is here to help.</p>
+      <a href="contact.html" class="plan-cta" style="max-width: 300px; margin-left: auto; margin-right: auto; display: inline-block; padding: 12px 24px; text-decoration: none; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); color: #000; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;">
+        <i class="fa-solid fa-envelope"></i> Contact Us
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: var(--bg-secondary); padding: 40px 8%; border-top: var(--border-normal); text-align: center; color: var(--text-secondary);">
+    <p>&copy; 2024 ARCHBRAIN. Built in Nigeria for Africa. All rights reserved.</p>
+    <p style="margin-top: 12px; font-size: 13px;">
+      <a href="#" style="color: var(--accent-cyan); text-decoration: none;">Privacy Policy</a> | 
+      <a href="#" style="color: var(--accent-cyan); text-decoration: none;">Terms of Service</a> |
+      <a href="#" style="color: var(--accent-cyan); text-decoration: none;">Security</a>
+    </p>
+  </footer>
+
+  <script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-header').addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+
+    // Search functionality
+    document.getElementById('faqSearch')?.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

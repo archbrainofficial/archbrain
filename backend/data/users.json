@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": "user-1784798044932-zijk3myc9",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "phone": "1234567890",
+      "password_hash": "$2a$10$h0Q6rie.dfdjFck4g4ytkuCvMTuMVSO3MRw8BVLyWD/SenMnyd292",
+      "role": "user",
+      "subscription_plan": "free",
+      "created_at": "2026-07-23T09:14:04.932Z",
+      "updated_at": "2026-07-23T09:14:04.933Z"
+    },
+    {
+      "id": "user-1784799941185-u48ax2s7p",
+      "name": "Sarah Smith",
+      "email": "sarah@test.com",
+      "phone": "9876543210",
+      "password_hash": "$2a$10$tObtAP/218AH2vOLGnv5xO8ZVSKjiRXCYioXSuSRStUuLgEshxT/2",
+      "role": "user",
+      "subscription_plan": "free",
+      "created_at": "2026-07-23T09:45:41.185Z",
+      "updated_at": "2026-07-23T09:45:41.188Z"
+    },
+    {
+      "id": "user-1784801956202-iemy5qbsi",
+      "name": "Test User",
+      "email": "testuser@example.com",
+      "phone": "1234567890",
+      "password_hash": "$2a$10$Cz253HRZSbJhoPhHtQhwC.GKOzrALgv0PA4UtdspXnFegT9TjhYJ2",
+      "role": "user",
+      "subscription_plan": "free",
+      "created_at": "2026-07-23T10:19:16.202Z",
+      "updated_at": "2026-07-23T10:19:16.204Z"
+    },
+    {
+      "id": "user-1784820654521-88amuak5y",
+      "name": "emmanuel jonathan",
+      "email": "emmanueljonathan511@gmail.com",
+      "phone": "08105123721",
+      "password_hash": "$2a$10$Dq5ZJc6vCzolveMjFVZ.nOux6mx216MGGMRkT8GXufU1DDCWfO5Ze",
+      "role": "user",
+      "subscription_plan": "free",
+      "created_at": "2026-07-23T15:30:54.521Z",
+      "updated_at": "2026-07-23T15:30:54.521Z"
+    }
+  ]
+}

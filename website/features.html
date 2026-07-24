@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features - ARCHBRAIN</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 60px 0;
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: var(--border-normal);
+      border-radius: 12px;
+      padding: 32px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--accent-cyan);
+      transform: translateY(-5px);
+      box-shadow: var(--glow-shadow);
+    }
+    .feature-icon {
+      font-size: 48px;
+      color: var(--accent-cyan);
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+    .feature-card p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .use-case {
+      background: var(--bg-card);
+      border-left: 4px solid var(--accent-cyan);
+      padding: 24px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .use-case h4 {
+      color: var(--accent-cyan);
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 40px 0;
+    }
+    .comparison-table th {
+      background: var(--bg-card);
+      border: var(--border-normal);
+      padding: 16px;
+      text-align: left;
+      color: var(--accent-cyan);
+      font-weight: 600;
+    }
+    .comparison-table td {
+      border: var(--border-normal);
+      padding: 16px;
+      color: var(--text-secondary);
+    }
+    .comparison-table tr:hover {
+      background: var(--bg-card);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="index.html" class="logo">
+      <i class="fa-solid fa-shield-halved logo-icon"></i>
+      <span>ARCHBRAIN</span>
+    </a>
+    <nav class="nav">
+      <a href="features.html" style="color: var(--accent-cyan);">Features</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="../backend/public/index.html" class="login-link">Login</a>
+      <a href="pricing.html" class="cta-nav">Get Started Free</a>
+    </div>
+  </header>
+
+  <main style="padding-top: 100px; padding-bottom: 80px;">
+    <!-- Features Hero -->
+    <section class="hero" style="padding: 60px 8%; margin-top: 0;">
+      <h1 style="font-size: 48px; margin-bottom: 20px;">
+        Powerful Features for Device Protection
+      </h1>
+      <p style="font-size: 18px; color: var(--text-secondary); max-width: 700px;">
+        Everything you need to protect, track, recover, and manage your smartphones. Built with enterprise-grade security and African infrastructure in mind.
+      </p>
+    </section>
+
+    <!-- Core Features -->
+    <section style="padding: 0 8%;">
+      <h2 style="font-size: 32px; margin-bottom: 10px; color: var(--accent-cyan);">Core Features</h2>
+      <p style="color: var(--text-secondary); margin-bottom: 40px;">Advanced tools to keep your devices safe, tracked, and recoverable.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <h3>Real-Time GPS Tracking</h3>
+          <p>Track your device's live location with pinpoint accuracy. Update every 30 seconds with battery and signal information.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+          <h3>Remote Device Lock</h3>
+          <p>Instantly lock your phone with a secure PIN code remotely. Prevent unauthorized access immediately after theft.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-trash"></i></div>
+          <h3>Remote Data Wipe</h3>
+          <p>Securely erase all personal data, photos, messages, and credentials from your device in seconds.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-bell-on"></i></div>
+          <h3>Instant Theft Alerts</h3>
+          <p>Real-time notifications when your device is reported stolen, suspicious activity detected, or goes offline.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3>IMEI-Based Protection</h3>
+          <p>Unique hardware-level identification that cannot be spoofed. Works even after factory reset or SIM swap.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-history"></i></div>
+          <h3>Complete Location History</h3>
+          <p>Access up to 1 year of location history. View movement patterns, favorite locations, and travel routes.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+          <h3>Family Sharing</h3>
+          <p>Monitor and protect family members' devices. Share access with trusted contacts securely.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Advanced Analytics</h3>
+          <p>Detailed reports on device usage, location patterns, and security incidents. Export reports in PDF format.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-shield-check"></i></div>
+          <h3>Bank-Level Security</h3>
+          <p>End-to-end encryption, secure authentication, and compliance with international data protection standards.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3>24/7 Support</h3>
+          <p>Premium members get priority support via chat, email, and phone. Average response time under 2 minutes.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-mobile"></i></div>
+          <h3>Multi-Device Management</h3>
+          <p>Manage unlimited devices from a single dashboard. Switch between devices instantly.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>Works Offline</h3>
+          <p>Location data syncs once device goes online. Critical commands stored securely for later execution.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Features -->
+    <section style="padding: 60px 8%; background: var(--bg-secondary); margin: 40px 0; border-radius: 16px;">
+      <h2 style="font-size: 32px; margin-bottom: 40px; color: var(--accent-cyan);">Advanced Capabilities</h2>
+
+      <div class="use-case">
+        <h4><i class="fa-solid fa-sim-card"></i> SIM Swap Detection</h4>
+        <p>Automatically detect when a new SIM card is inserted. Instant alerts and location confirmation.</p>
+      </div>
+
+      <div class="use-case">
+        <h4><i class="fa-solid fa-gps"></i> Geofencing</h4>
+        <p>Create safe zones for your devices. Get alerts when your phone leaves predefined areas.</p>
+      </div>
+
+      <div class="use-case">
+        <h4><i class="fa-solid fa-network-wired"></i> Network Monitoring</h4>
+        <p>Track WiFi networks your device connects to. Detect suspicious connections automatically.</p>
+      </div>
+
+      <div class="use-case">
+        <h4><i class="fa-solid fa-certificate"></i> Ownership Verification</h4>
+        <p>Official IMEI-based proof of ownership. Use for police reports and insurance claims.</p>
+      </div>
+
+      <div class="use-case">
+        <h4><i class="fa-solid fa-building"></i> Enterprise Management</h4>
+        <p>Manage corporate device fleets. Enforce policies and compliance across all devices.</p>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section style="padding: 60px 8%;">
+      <h2 style="font-size: 32px; margin-bottom: 40px; color: var(--accent-cyan);">Who Benefits?</h2>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-person"></i></div>
+          <h3>Personal Users</h3>
+          <p>Protect your smartphone from theft and loss. Get peace of mind knowing your data is safe and recoverable.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-family"></i></div>
+          <h3>Parents</h3>
+          <p>Monitor children's devices safely. Know their location and receive alerts about suspicious activity.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <h3>Businesses</h3>
+          <p>Manage company phone fleets. Ensure data security and compliance for all corporate devices.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-mobile"></i></div>
+          <h3>Phone Retailers</h3>
+          <p>Offer device protection to customers. Increase customer satisfaction and reduce theft losses.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Insurance Companies</h3>
+          <p>Verify ownership claims. Reduce fraud through IMEI-based device identification.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fa-solid fa-bank"></i></div>
+          <h3>Financial Institutions</h3>
+          <p>Protect customers' mobile banking devices. Reduce fraud and unauthorized access incidents.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section style="padding: 60px 8%;">
+      <h2 style="font-size: 32px; margin-bottom: 40px; color: var(--accent-cyan);">Feature Comparison</h2>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Free Plan</th>
+            <th>Pro Plan</th>
+            <th>Premium Plan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Devices</strong></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 1</td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 5</td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> Unlimited</td>
+          </tr>
+          <tr>
+            <td><strong>Real-Time Tracking</strong></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+          </tr>
+          <tr>
+            <td><strong>Remote Lock</strong></td>
+            <td></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+          </tr>
+          <tr>
+            <td><strong>Remote Wipe</strong></td>
+            <td></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+          </tr>
+          <tr>
+            <td><strong>Location History</strong></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 7 days</td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 30 days</td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 1 year</td>
+          </tr>
+          <tr>
+            <td><strong>Geofencing</strong></td>
+            <td></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+          </tr>
+          <tr>
+            <td><strong>Support</strong></td>
+            <td>Community</td>
+            <td>Email</td>
+            <td>24/7 Priority</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: var(--bg-secondary); padding: 40px 8%; border-top: var(--border-normal); text-align: center; color: var(--text-secondary);">
+    <p>&copy; 2024 ARCHBRAIN. Built in Nigeria for Africa. All rights reserved.</p>
+    <p style="margin-top: 12px; font-size: 13px;">
+      <a href="#" style="color: var(--accent-cyan); text-decoration: none;">Privacy Policy</a> | 
+      <a href="#" style="color: var(--accent-cyan); text-decoration: none;">Terms of Service</a> |
+      <a href="#" style="color: var(--accent-cyan); text-decoration: none;">Security</a>
+    </p>
+  </footer>
+</body>
+</html>
