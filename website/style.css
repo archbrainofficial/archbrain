@@ -1922,6 +1922,10 @@ h1, h2, h3, h4, h5 {
   display: none;
 }
 
+.mobile-login-link {
+  display: none;
+}
+
 .menu-icon-label {
   display: none;
   cursor: pointer;
@@ -1967,6 +1971,27 @@ h1, h2, h3, h4, h5 {
 
   .menu-icon-label {
     display: block;
+  }
+
+  .mobile-login-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--text-primary);
+    background: transparent;
+    transition: var(--transition);
+    margin-right: 12px;
+  }
+
+  .mobile-login-link:hover {
+    color: var(--accent-cyan);
+    border-color: rgba(0,242,254,0.35);
+    box-shadow: 0 0 12px rgba(0,242,254,0.2);
   }
 
   /* Slide-out mobile drawer */
@@ -2037,6 +2062,62 @@ h1, h2, h3, h4, h5 {
   .menu-toggle:checked ~ .menu-icon-label .navicon:after {
     transform: rotate(45deg);
     top: 0;
+  }
+
+  .header {
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .mobile-login-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--text-primary);
+    background: transparent;
+    transition: var(--transition);
+    margin-right: 12px;
+    order: 2;
+    z-index: 1005;
+  }
+
+  .mobile-login-link:hover {
+    color: var(--accent-cyan);
+    border-color: rgba(0,242,254,0.35);
+    box-shadow: 0 0 12px rgba(0,242,254,0.2);
+  }
+
+  .menu-icon-label {
+    order: 3;
+  }
+
+  .header-actions {
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+    width: 280px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 0 24px;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1001;
+  }
+
+  .header-actions a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-toggle:checked ~ .nav,
+  .menu-toggle:checked ~ .header-actions {
+    transform: translateX(0);
   }
 
   /* Hero Section stacks */
