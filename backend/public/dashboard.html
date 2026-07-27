@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARCHBRAIN - MDM Admin Dashboard</title>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+  <div class="dashboard-outer-container">
+    
+    <!-- Top Level Subtitle Header -->
+    <div class="outer-header">
+      <span class="outer-badge">MDM ADMIN DASHBOARD</span>
+      <h1>Manage All Devices in One Place</h1>
+      <p>Live preview of your MDM admin dashboard. This is what a business owner sees when managing 50+ company devices.</p>
+    </div>
+
+    <!-- Main Dashboard Card -->
+    <div class="dashboard-card">
+      
+      <!-- Dashboard Title Block -->
+      <div class="dashboard-header">
+        <div class="dashboard-title-left">
+          <h2>ARCHBRAIN MDM</h2>
+          <p>Konga Deliveries Ltd - Admin Panel</p>
+        </div>
+        <div class="dashboard-title-right">
+          <button class="btn-enroll" id="btn-enroll"><i class="fa-solid fa-plus"></i> Enroll Device</button>
+          <button class="btn-reports" id="btn-reports"><i class="fa-solid fa-chart-simple"></i> Reports</button>
+        </div>
+      </div>
+
+      <!-- Stats Bar Row -->
+      <div class="stats-row">
+        <div class="stat-box">
+          <span class="stat-number color-cyan">47</span>
+          <span class="stat-label">Active Devices</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number color-red">3</span>
+          <span class="stat-label">Offline Devices</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number color-orange">2</span>
+          <span class="stat-label">Alerts Today</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-number color-cyan">50</span>
+          <span class="stat-label">Total Enrolled</span>
+        </div>
+      </div>
+
+      <!-- Live Map Widget -->
+      <div class="map-wrapper">
+        <div class="map-title-overlay">
+          <h3>LIVE MAP — LAGOS, NIGERIA</h3>
+          <p>47 devices tracked in real time</p>
+        </div>
+        <div id="leaflet-admin-map"></div>
+      </div>
+
+      <!-- Device List Table -->
+      <div class="device-table-container">
+        <table class="device-table">
+          <thead>
+            <tr>
+              <th>DEVICE</th>
+              <th>LOCATION</th>
+              <th>STATUS</th>
+              <th>BATTERY</th>
+              <th>ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody id="device-table-body">
+            <!-- Row 1 -->
+            <tr data-id="1">
+              <td>
+                <div class="device-name-cell">
+                  <span class="device-name-text">Chukwu's Phone</span>
+                  <span class="device-sub-text">Samsung A54 · IMEI: 35487...890</span>
+                </div>
+              </td>
+              <td>Ikeja Market</td>
+              <td>
+                <div class="status-indicator status-online">
+                  <span class="status-dot"></span>
+                  <span>Online</span>
+                </div>
+              </td>
+              <td class="battery-text text-green">87%</td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action btn-lock" onclick="handleLock('1')">Lock</button>
+                  <button class="btn-action btn-find" onclick="handleFind('1')">Find</button>
+                  <button class="btn-action btn-wipe" onclick="handleWipe('1')">Wipe</button>
+                </div>
+              </td>
+            </tr>
+            <!-- Row 2 -->
+            <tr data-id="2">
+              <td>
+                <div class="device-name-cell">
+                  <span class="device-name-text">Amina's Phone</span>
+                  <span class="device-sub-text">iPhone 13 · IMEI: 35487...891</span>
+                </div>
+              </td>
+              <td>Victoria Island</td>
+              <td>
+                <div class="status-indicator status-online">
+                  <span class="status-dot"></span>
+                  <span>Online</span>
+                </div>
+              </td>
+              <td class="battery-text text-green">92%</td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action btn-lock" onclick="handleLock('2')">Lock</button>
+                  <button class="btn-action btn-find" onclick="handleFind('2')">Find</button>
+                  <button class="btn-action btn-wipe" onclick="handleWipe('2')">Wipe</button>
+                </div>
+              </td>
+            </tr>
+            <!-- Row 3 -->
+            <tr data-id="3">
+              <td>
+                <div class="device-name-cell">
+                  <span class="device-name-text">Tunde's Phone</span>
+                  <span class="device-sub-text">Tecno Spark · IMEI: 35487...892</span>
+                </div>
+              </td>
+              <td>Lekki Phase 1</td>
+              <td>
+                <div class="status-indicator status-warning">
+                  <span class="status-dot"></span>
+                  <span>Low Battery</span>
+                </div>
+              </td>
+              <td class="battery-text text-orange">8%</td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action btn-lock" onclick="handleLock('3')">Lock</button>
+                  <button class="btn-action btn-find" onclick="handleFind('3')">Find</button>
+                  <button class="btn-action btn-wipe" onclick="handleWipe('3')">Wipe</button>
+                </div>
+              </td>
+            </tr>
+            <!-- Row 4 -->
+            <tr data-id="4">
+              <td>
+                <div class="device-name-cell">
+                  <span class="device-name-text">Device #4</span>
+                  <span class="device-sub-text">Samsung A14 · IMEI: 35487...893</span>
+                </div>
+              </td>
+              <td>Last: Oshodi</td>
+              <td>
+                <div class="status-indicator status-offline">
+                  <span class="status-dot"></span>
+                  <span>Offline 2h</span>
+                </div>
+              </td>
+              <td class="battery-text text-muted">Unknown</td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action btn-lock" onclick="handleLock('4')">Lock</button>
+                  <button class="btn-action btn-find" onclick="handleFind('4')">Find</button>
+                  <button class="btn-action btn-wipe" onclick="handleWipe('4')">Wipe</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Custom Logic -->
+  <script src="dashboard.js"></script>
+</body>
+</html>

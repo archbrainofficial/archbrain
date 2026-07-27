@@ -3,192 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARCHBRAIN - MDM Admin Dashboard</title>
-  
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <title>ARCHBRAIN - Sign In or Sign Up</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <!-- FontAwesome -->
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Custom Styles -->
+  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="dashboard-outer-container">
+  <!-- Top Navigation Header -->
+  <header class="auth-header">
+    <a href="../index.html" class="logo" style="text-decoration: none;">
+      <i class="fa-solid fa-shield-halved logo-icon"></i>
+      <span>ARCHBRAIN</span>
+    </a>
+    <div class="header-right">
+      <div class="lang-dropdown">
+        <i class="fa-solid fa-globe"></i>
+        <span>English</span>
+        <i class="fa-solid fa-chevron-down drop-arrow"></i>
+      </div>
+      <a href="#" class="btn-header-action" id="header-action-btn">Sign up</a>
+    </div>
+  </header>
+
+  <main class="auth-container">
     
-    <!-- Top Level Subtitle Header -->
-    <div class="outer-header">
-      <span class="outer-badge">MDM ADMIN DASHBOARD</span>
-      <h1>Manage All Devices in One Place</h1>
-      <p>Live preview of your MDM admin dashboard. This is what a business owner sees when managing 50+ company devices.</p>
+    <!-- ==========================================
+         LOGIN VIEW (First Image Layout)
+         ========================================== -->
+    <div class="auth-view active" id="login-view">
+      <div class="login-card">
+        
+        <h2>Sign in to ARCHBRAIN</h2>
+        
+        <!-- Social logins (horizontal) -->
+        <div class="social-login-row">
+          <button type="button" class="btn-social">
+            <i class="fa-brands fa-google google-color"></i>
+            <span>Google</span>
+          </button>
+          <button type="button" class="btn-social">
+            <i class="fa-brands fa-apple apple-color"></i>
+            <span>Apple</span>
+          </button>
+          <button type="button" class="btn-social">
+            <i class="fa-brands fa-github github-color"></i>
+            <span>GitHub</span>
+          </button>
+        </div>
+
+        <!-- SSO Wide Button -->
+        <button type="button" class="btn-sso">
+          <i class="fa-solid fa-key"></i> Continue with SSO
+        </button>
+
+        <div class="separator">
+          <span>or</span>
+        </div>
+
+        <!-- Form -->
+        <form class="auth-form" id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" required placeholder="name@company.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <div class="password-wrapper">
+              <input type="password" id="login-password" required placeholder="Enter password">
+              <i class="fa-regular fa-eye-slash toggle-password" data-target="login-password"></i>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-auth-submit">Sign In</button>
+        </form>
+
+        <!-- Bottom Links -->
+        <div class="auth-links">
+          <p>Don't have an account? <a href="#" id="link-to-signup">Sign up</a></p>
+          <p>Forgot your <a href="#">email</a> or <a href="#">password</a>?</p>
+        </div>
+
+        <div class="consent-text">
+          By continuing, I agree to ARCHBRAIN's <a href="#">terms</a>, <a href="#">privacy policy</a>, and <a href="#">cookie policy</a>.
+        </div>
+
+      </div>
     </div>
 
-    <!-- Main Dashboard Card -->
-    <div class="dashboard-card">
-      
-      <!-- Dashboard Title Block -->
-      <div class="dashboard-header">
-        <div class="dashboard-title-left">
-          <h2>ARCHBRAIN MDM</h2>
-          <p>Konga Deliveries Ltd - Admin Panel</p>
-        </div>
-        <div class="dashboard-title-right">
-          <button class="btn-enroll" id="btn-enroll"><i class="fa-solid fa-plus"></i> Enroll Device</button>
-          <button class="btn-reports" id="btn-reports"><i class="fa-solid fa-chart-simple"></i> Reports</button>
-        </div>
-      </div>
+    <!-- ==========================================
+         SIGN UP VIEW (Second Image Layout)
+         ========================================== -->
+    <div class="auth-view" id="signup-view">
+      <div class="signup-content">
+        
+        <h2 class="signup-title">Build, protect, and connect with ARCHBRAIN</h2>
 
-      <!-- Stats Bar Row -->
-      <div class="stats-row">
-        <div class="stat-box">
-          <span class="stat-number color-cyan">47</span>
-          <span class="stat-label">Active Devices</span>
+        <!-- Social logins (stacked) -->
+        <div class="social-login-stack">
+          <button type="button" class="btn-social-wide">
+            <i class="fa-brands fa-google google-color"></i>
+            <span>Continue with Google</span>
+          </button>
+          <button type="button" class="btn-social-wide">
+            <i class="fa-brands fa-apple apple-color"></i>
+            <span>Continue with Apple</span>
+          </button>
+          <button type="button" class="btn-social-wide">
+            <i class="fa-brands fa-github github-color"></i>
+            <span>Continue with GitHub</span>
+          </button>
         </div>
-        <div class="stat-box">
-          <span class="stat-number color-red">3</span>
-          <span class="stat-label">Offline Devices</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-number color-orange">2</span>
-          <span class="stat-label">Alerts Today</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-number color-cyan">50</span>
-          <span class="stat-label">Total Enrolled</span>
-        </div>
-      </div>
 
-      <!-- Live Map Widget -->
-      <div class="map-wrapper">
-        <div class="map-title-overlay">
-          <h3>LIVE MAP — LAGOS, NIGERIA</h3>
-          <p>47 devices tracked in real time</p>
+        <!-- Signup Form -->
+        <form class="auth-form" id="signup-form">
+          <div class="form-group">
+            <label for="signup-email">Email</label>
+            <input type="email" id="signup-email" required placeholder="name@company.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <div class="password-wrapper">
+              <input type="password" id="signup-password" required placeholder="Choose a secure password">
+              <i class="fa-regular fa-eye-slash toggle-password" data-target="signup-password"></i>
+            </div>
+          </div>
+
+          <!-- Turnstile CAPTCHA simulation -->
+          <div class="captcha-group">
+            <label>Let us know you are human</label>
+            <div class="turnstile-mock">
+              <div class="turnstile-left">
+                <div class="checkbox-container">
+                  <input type="checkbox" id="captcha-checkbox">
+                  <span class="checkmark"></span>
+                </div>
+                <label for="captcha-checkbox" class="captcha-label">Verify you are human</label>
+              </div>
+              <div class="turnstile-right">
+                <i class="fa-solid fa-shield-halved logo-icon"></i>
+                <div class="turnstile-legal">
+                  <strong>ARCHBRAIN Secure</strong>
+                  <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="consent-text" style="text-align: left; margin: 15px 0;">
+            By continuing, I agree to ARCHBRAIN's <a href="#">terms</a>, <a href="#">privacy policy</a>, and <a href="#">cookie policy</a>.
+          </div>
+
+          <button type="submit" class="btn-auth-submit">Sign up</button>
+        </form>
+
+        <!-- Bottom Links -->
+        <div class="auth-links" style="margin-top: 20px;">
+          <p>Already have an account? <a href="#" id="link-to-login">Log in</a></p>
         </div>
-        <div id="leaflet-admin-map"></div>
-      </div>
 
-      <!-- Device List Table -->
-      <div class="device-table-container">
-        <table class="device-table">
-          <thead>
-            <tr>
-              <th>DEVICE</th>
-              <th>LOCATION</th>
-              <th>STATUS</th>
-              <th>BATTERY</th>
-              <th>ACTIONS</th>
-            </tr>
-          </thead>
-          <tbody id="device-table-body">
-            <!-- Row 1 -->
-            <tr data-id="1">
-              <td>
-                <div class="device-name-cell">
-                  <span class="device-name-text">Chukwu's Phone</span>
-                  <span class="device-sub-text">Samsung A54 · IMEI: 35487...890</span>
-                </div>
-              </td>
-              <td>Ikeja Market</td>
-              <td>
-                <div class="status-indicator status-online">
-                  <span class="status-dot"></span>
-                  <span>Online</span>
-                </div>
-              </td>
-              <td class="battery-text text-green">87%</td>
-              <td>
-                <div class="actions-cell">
-                  <button class="btn-action btn-lock" onclick="handleLock('1')">Lock</button>
-                  <button class="btn-action btn-find" onclick="handleFind('1')">Find</button>
-                  <button class="btn-action btn-wipe" onclick="handleWipe('1')">Wipe</button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 2 -->
-            <tr data-id="2">
-              <td>
-                <div class="device-name-cell">
-                  <span class="device-name-text">Amina's Phone</span>
-                  <span class="device-sub-text">iPhone 13 · IMEI: 35487...891</span>
-                </div>
-              </td>
-              <td>Victoria Island</td>
-              <td>
-                <div class="status-indicator status-online">
-                  <span class="status-dot"></span>
-                  <span>Online</span>
-                </div>
-              </td>
-              <td class="battery-text text-green">92%</td>
-              <td>
-                <div class="actions-cell">
-                  <button class="btn-action btn-lock" onclick="handleLock('2')">Lock</button>
-                  <button class="btn-action btn-find" onclick="handleFind('2')">Find</button>
-                  <button class="btn-action btn-wipe" onclick="handleWipe('2')">Wipe</button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 3 -->
-            <tr data-id="3">
-              <td>
-                <div class="device-name-cell">
-                  <span class="device-name-text">Tunde's Phone</span>
-                  <span class="device-sub-text">Tecno Spark · IMEI: 35487...892</span>
-                </div>
-              </td>
-              <td>Lekki Phase 1</td>
-              <td>
-                <div class="status-indicator status-warning">
-                  <span class="status-dot"></span>
-                  <span>Low Battery</span>
-                </div>
-              </td>
-              <td class="battery-text text-orange">8%</td>
-              <td>
-                <div class="actions-cell">
-                  <button class="btn-action btn-lock" onclick="handleLock('3')">Lock</button>
-                  <button class="btn-action btn-find" onclick="handleFind('3')">Find</button>
-                  <button class="btn-action btn-wipe" onclick="handleWipe('3')">Wipe</button>
-                </div>
-              </td>
-            </tr>
-            <!-- Row 4 -->
-            <tr data-id="4">
-              <td>
-                <div class="device-name-cell">
-                  <span class="device-name-text">Device #4</span>
-                  <span class="device-sub-text">Samsung A14 · IMEI: 35487...893</span>
-                </div>
-              </td>
-              <td>Last: Oshodi</td>
-              <td>
-                <div class="status-indicator status-offline">
-                  <span class="status-dot"></span>
-                  <span>Offline 2h</span>
-                </div>
-              </td>
-              <td class="battery-text text-muted">Unknown</td>
-              <td>
-                <div class="actions-cell">
-                  <button class="btn-action btn-lock" onclick="handleLock('4')">Lock</button>
-                  <button class="btn-action btn-find" onclick="handleFind('4')">Find</button>
-                  <button class="btn-action btn-wipe" onclick="handleWipe('4')">Wipe</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
-
     </div>
 
-  </div>
+  </main>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <!-- Custom Logic -->
+  <!-- Script Logic -->
   <script src="app.js"></script>
 </body>
 </html>

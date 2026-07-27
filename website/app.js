@@ -911,6 +911,14 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animate);
     }
 
+    // Close mobile menu when nav link is clicked (useful for single-page anchors)
+    const menuToggle = document.getElementById('menu-toggle');
+    document.querySelectorAll('.nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (menuToggle) menuToggle.checked = false;
+      });
+    });
+
     animate();
   }
 

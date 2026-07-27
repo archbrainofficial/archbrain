@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../models/user.dart';
 import 'api_service.dart';
@@ -24,10 +25,10 @@ class AuthService {
       }
 
       // Log response details for debugging signup failures
-      print('Signup failed: ${response.statusCode} ${response.body}');
+      debugPrint('Signup failed: ${response.statusCode} ${response.body}');
       return false;
     } catch (error) {
-      print('Signup exception: $error');
+      debugPrint('Signup exception: $error');
       return false;
     }
   }
@@ -47,10 +48,10 @@ class AuthService {
       }
 
       // Log response details for debugging login failures
-      print('Login failed: ${response.statusCode} ${response.body}');
+      debugPrint('Login failed: ${response.statusCode} ${response.body}');
       return false;
     } catch (error) {
-      print('Login exception: $error');
+      debugPrint('Login exception: $error');
       return false;
     }
   }

@@ -85,6 +85,10 @@
       <i class="fa-solid fa-shield-halved logo-icon"></i>
       <span>ARCHBRAIN</span>
     </a>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon-label">
+      <span class="navicon"></span>
+    </label>
     <nav class="nav">
       <a href="features.html" style="color: var(--accent-cyan);">Features</a>
       <a href="how-it-works.html">How It Works</a>
@@ -93,8 +97,8 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-actions">
-      <a href="../backend/public/index.html" class="login-link">Login</a>
-      <a href="pricing.html" class="cta-nav">Get Started Free</a>
+      <a href="/admin/index.html?mode=login" class="login-link">Login</a>
+      <a href="/admin/index.html?mode=signup" class="cta-nav">Get Started Free</a>
     </div>
   </header>
 
@@ -266,60 +270,62 @@
     <section style="padding: 60px 8%;">
       <h2 style="font-size: 32px; margin-bottom: 40px; color: var(--accent-cyan);">Feature Comparison</h2>
 
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Feature</th>
-            <th>Free Plan</th>
-            <th>Pro Plan</th>
-            <th>Premium Plan</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Devices</strong></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 1</td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 5</td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> Unlimited</td>
-          </tr>
-          <tr>
-            <td><strong>Real-Time Tracking</strong></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
-          </tr>
-          <tr>
-            <td><strong>Remote Lock</strong></td>
-            <td></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
-          </tr>
-          <tr>
-            <td><strong>Remote Wipe</strong></td>
-            <td></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
-          </tr>
-          <tr>
-            <td><strong>Location History</strong></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 7 days</td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 30 days</td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 1 year</td>
-          </tr>
-          <tr>
-            <td><strong>Geofencing</strong></td>
-            <td></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
-            <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
-          </tr>
-          <tr>
-            <td><strong>Support</strong></td>
-            <td>Community</td>
-            <td>Email</td>
-            <td>24/7 Priority</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Free Plan</th>
+              <th>Pro Plan</th>
+              <th>Premium Plan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Devices</strong></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 1</td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 5</td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> Unlimited</td>
+            </tr>
+            <tr>
+              <td><strong>Real-Time Tracking</strong></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+            </tr>
+            <tr>
+              <td><strong>Remote Lock</strong></td>
+              <td></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+            </tr>
+            <tr>
+              <td><strong>Remote Wipe</strong></td>
+              <td></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+            </tr>
+            <tr>
+              <td><strong>Location History</strong></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 7 days</td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 30 days</td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i> 1 year</td>
+            </tr>
+            <tr>
+              <td><strong>Geofencing</strong></td>
+              <td></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+              <td><i class="fa-solid fa-check" style="color: var(--accent-cyan);"></i></td>
+            </tr>
+            <tr>
+              <td><strong>Support</strong></td>
+              <td>Community</td>
+              <td>Email</td>
+              <td>24/7 Priority</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 

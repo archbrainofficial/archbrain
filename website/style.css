@@ -1812,10 +1812,6 @@ h1, h2, h3, h4, h5 {
   line-height: 1.5;
 }
 
-.left-stats {
-  /* Customize position relative if needed */
-}
-
 .right-stats {
   border-color: var(--text-muted);
 }
@@ -1915,6 +1911,338 @@ h1, h2, h3, h4, h5 {
   width: 100%;
   height: 100%;
   background: transparent;
+}
+
+/* ==========================================================================
+   Mobile Responsive Navigation & Layouts (Antigravity Optimization)
+   ========================================================================== */
+
+/* Menu toggle checkbox & icon */
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon-label {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  user-select: none;
+  z-index: 1005;
+}
+
+.menu-icon-label .navicon {
+  background: var(--text-primary);
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 22px;
+}
+
+.menu-icon-label .navicon:before,
+.menu-icon-label .navicon:after {
+  background: var(--text-primary);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+.menu-icon-label .navicon:before {
+  top: 6px;
+}
+
+.menu-icon-label .navicon:after {
+  top: -6px;
+}
+
+/* 992px Breakpoint (Tablet/Smaller Desktop) */
+@media (max-width: 992px) {
+  .header {
+    padding: 15px 5%;
+  }
+
+  .menu-icon-label {
+    display: block;
+  }
+
+  /* Slide-out mobile drawer */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background: rgba(7, 12, 23, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 100px 24px;
+    border-left: var(--border-normal);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.6);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+  }
+
+  .nav a {
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+  }
+
+  /* Header action buttons in mobile drawer */
+  .header-actions {
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+    width: 280px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 0 24px;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1001;
+  }
+
+  .header-actions a {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Drawer open trigger states */
+  .menu-toggle:checked ~ .nav,
+  .menu-toggle:checked ~ .header-actions {
+    transform: translateX(0);
+  }
+
+  /* Hamburger to 'X' animation */
+  .menu-toggle:checked ~ .menu-icon-label .navicon {
+    background: transparent;
+  }
+
+  .menu-toggle:checked ~ .menu-icon-label .navicon:before {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  .menu-toggle:checked ~ .menu-icon-label .navicon:after {
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  /* Hero Section stacks */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 130px 5% 60px 5%;
+    min-height: auto;
+    gap: 40px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    margin: 0 auto 30px auto;
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .hero-actions a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .tracking-live-badge {
+    justify-content: center;
+  }
+}
+
+/* 768px Breakpoint (Mobile Landscape/Portrait) */
+@media (max-width: 768px) {
+  /* Timeline responsive updates (how-it-works page) */
+  .timeline-item {
+    gap: 15px;
+  }
+
+  .timeline-marker {
+    width: 35px;
+  }
+
+  .timeline-dot {
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+  }
+
+  .timeline-line {
+    left: 7px;
+  }
+
+  /* Pricing note container stacking */
+  .pricing-note {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    margin-top: 30px;
+  }
+
+  .pricing-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Footer Links stacked for better touch usability */
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 15px;
+    line-height: 1.5;
+  }
+  
+  .footer {
+    padding: 30px 5%;
+  }
+
+  /* General padding adjustment for all standard sections */
+  section, main {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+  }
+}
+
+/* 576px Breakpoint (Smaller Phones) */
+@media (max-width: 576px) {
+  /* Phone mockup scaling */
+  .phone-mockup {
+    width: 240px;
+    height: 480px;
+    border-radius: 30px;
+    border-width: 8px;
+  }
+
+  .glowing-circle {
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Interactive Simulator responsiveness fixes */
+  .console-log {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    height: 100px;
+    padding: 8px;
+  }
+
+  .console-header {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+
+  .console-lines {
+    font-size: 10px;
+  }
+
+  .sim-sidebar {
+    max-height: 160px;
+  }
+
+  .device-item {
+    padding: 10px 14px;
+  }
+
+  .sim-controls {
+    padding: 16px;
+    gap: 15px;
+  }
+
+  /* Rotating Globe canvas wrapper dimensions */
+  .globe-canvas-wrapper {
+    height: 300px;
+  }
+
+  .globe-canvas-wrapper canvas {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  /* Feature grid card pad reduction */
+  .feature-card {
+    padding: 24px;
+  }
+
+  /* FAQ Accordion optimizations */
+  .faq-category {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+  .faq-header {
+    padding: 16px;
+  }
+
+  .faq-title {
+    font-size: 14px;
+  }
+
+  .faq-text {
+    padding: 16px;
+  }
+}
+
+/* 480px Breakpoint (Very Small/Legacy Devices) */
+@media (max-width: 480px) {
+  /* Metrics row counts single columns */
+  .metrics-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .metric-item h2 {
+    font-size: 34px;
+  }
+
+  /* Pricing Cards container sizing */
+  .pricing-container {
+    grid-template-columns: 1fr;
+    margin: 30px 0;
+  }
+
+  .pricing-card {
+    padding: 24px;
+  }
+}
+
+/* Comparison Table Horizontal Scroll Wrapper */
+.comparison-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: var(--border-normal);
+}
+
+.comparison-table {
+  min-width: 600px;
 }
 
 
