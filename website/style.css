@@ -2065,8 +2065,12 @@ h1, h2, h3, h4, h5 {
   }
 
   .header {
-    justify-content: space-between;
-    gap: 12px;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .logo {
+    display: none;
   }
 
   .mobile-login-link {
@@ -2079,9 +2083,9 @@ h1, h2, h3, h4, h5 {
     text-decoration: none;
     font-size: 14px;
     color: var(--text-primary);
-    background: transparent;
+    background: rgba(255,255,255,0.05);
     transition: var(--transition);
-    margin-right: 12px;
+    margin-right: 0;
     order: 2;
     z-index: 1005;
   }
@@ -2094,6 +2098,7 @@ h1, h2, h3, h4, h5 {
 
   .menu-icon-label {
     order: 3;
+    margin: 0;
   }
 
   .header-actions {
